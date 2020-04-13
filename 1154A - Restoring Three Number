@@ -1,0 +1,18 @@
+--------- C++ ------------------
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    int a,b,c,d;
+    cin>>a>>b>>c>>d;
+    
+    if(a<b)
+        swap(a,b);
+    if(a<c)
+        swap(a,c);
+    if(a<d)
+        swap(a,d);
+    cout<<a-b<<' '<<a-c<<' '<<a-d;
+    
+    return 0;
+}
