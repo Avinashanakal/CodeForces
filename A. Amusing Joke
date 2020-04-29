@@ -48,3 +48,5 @@ int main() {
     cout<<"YES"<<endl;
 	return 0;
 }
+-----------------------Python solution-------------------
+print(["NO","YES"][sorted(input()+input())==sorted(input())])
