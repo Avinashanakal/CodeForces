@@ -19,3 +19,32 @@ int main() {
     
 	return 0;
 }
+------------------------------Using MAP------------------------------------------
+#include <bits/stdc++.h>
+#define lli long long int
+using namespace std;
+
+int main() {
+    string g,h,p;
+    cin>>g>>h>>p;
+    
+    map<char,int>mg,mh;
+    for(int i=0;i<g.length();++i){
+        mg[g[i]]++;
+    }
+      for(int i=0;i<h.length();++i){
+        mg[h[i]]++;
+    }
+      for(int i=0;i<p.length();++i){
+        mh[p[i]]++;
+    }
+    for(int i=0;i<26;++i){
+        if(mg['A'+i]!=mh['A'+i]){
+            cout<<"NO"<<endl;
+            return 0;
+        }
+    }
+
+    cout<<"YES"<<endl;
+	return 0;
+}
