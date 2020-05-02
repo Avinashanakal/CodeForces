@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+#define lli long long int
+using namespace std;
+ 
+int main() {
+	int t;
+	cin>>t;
+	while(t--){
+	    int n;
+	    cin>>n;
+	    int temp1=(1<<n); //this means 2^n
+	    int temp2=0;
+	    
+	    for(int i=1;i<n/2;++i){
+	        temp1+=1<<i;
+	    }
+	    for(int i=n/2;i<n;++i){
+	        temp2+=1<<i;
+	    }
+	    cout<<abs(temp1-temp2)<<endl;
+	    }
+	
+	return 0;
+}
+-----------------------------Run time Error-----------------------------------
+#include <bits/stdc++.h>
+#define lli long long int
+using namespace std;
+
+int main() {
+	lli t;
+	cin>>t;
+	while(t--){
+	    lli n;
+	    cin>>n;
+	    vector<lli>v(n);
+	    for(lli i=1;i<=n;++i){
+	        v[i]=pow(2,i);
+	    }
+	    lli mini=0;
+	    lli count=0;
+	    lli maxi=v[n];
+	    lli c=(n/2);
+	    //cout<<maxi<<endl;
+	    
+	    for(int i=n-1;i>=1;--i){
+	             if((mini<maxi) && (count<c)){
+	                mini+=v[i];
+	                count++;
+	            }
+	           
+	        else{
+	            maxi+=v[i];
+	            
+	        } 
+	    }
+	    //cout<<mini<<" "<<maxi<<endl;
+	    //cout<<"maxi"<<maxi<<" mini"<<mini<<endl;
+	    cout<<abs(maxi-mini)<<endl;
+	}
+	return 0;
+}
