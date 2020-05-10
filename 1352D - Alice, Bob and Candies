@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+#define lli long long int
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+       lli n;
+       cin>>n;
+       vector<int>candies(n);
+       for(int i=0;i<n;++i){
+           cin>>candies[i];
+       }
+       int pos1=-1,pos2=n;
+       int alice=0,bob=0,moves=0,prev=0;
+       while(pos1<pos2){
+           int eaten =0;
+           for(pos1++;pos1<pos2;pos1++){
+               eaten+=candies[pos1];
+               alice+=candies[pos1];
+               if(eaten>prev){
+                   prev=eaten;
+                   break;
+               }
+           }
+           if(eaten)
+           moves++;
+           eaten=0;
+           for(pos2--;pos1<pos2;pos2--){
+               eaten+=candies[pos2];
+               bob+=candies[pos2];
+               if(eaten>prev){
+                   prev=eaten;
+                   break;
+               }
+           }
+           if(eaten)
+           moves++;
+       }
+        cout<<moves<<" "<<alice<<" "<<bob<<endl;
+      }
+     
+	return 0;
+}
